@@ -18,7 +18,7 @@ public class IntegraController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Recepcionar([FromBody]JObject json)
+    public async Task<IActionResult> Recepcionar([FromBody]JToken json)
     {
         if (json is not { HasValues: true })
         {

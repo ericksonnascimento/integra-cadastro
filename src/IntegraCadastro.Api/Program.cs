@@ -18,12 +18,12 @@ var app = builder.Build();
 
 app.UseMiddleware<ApiKeyMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+//if (app.Environment.IsDevelopment())
+//{
+app.MapOpenApi();
+//}
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
