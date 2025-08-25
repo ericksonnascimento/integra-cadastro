@@ -15,9 +15,6 @@ builder.Services.AddScoped<IIntegraService, IntegraService>();
 
 var app = builder.Build();
 
-
-app.UseMiddleware<ApiKeyMiddleware>();
-
 //if (app.Environment.IsDevelopment())
 //{
 app.MapOpenApi();
