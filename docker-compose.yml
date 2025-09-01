@@ -3,13 +3,11 @@ version: "3.9"
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver_express
+    container_name: integracadastro_database
     ports:
-      - "1433:1433"
+      - "1444:1433"
     environment:
       ACCEPT_EULA: "Y"           # Aceita a licença
       SA_PASSWORD: "YourStrong!Passw0rd" # Senha do usuário 'sa' (mín. 8 chars, maiúscula, minúscula, número e símbolo)
       MSSQL_PID: "Express"       # Define edição Express
-    volumes:
-      - ./data:/var/opt/mssql    # Persistência dos dados
     restart: unless-stopped
