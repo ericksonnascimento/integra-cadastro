@@ -13,6 +13,7 @@ public class RecebeController : ControllerBase
     private readonly ILogger<RecebeController> _logger;
     private readonly IIntegraService _service;
     private readonly string _recebeApiKey;
+    private const int CODIGO_SUCESSO = 3;
 
     public RecebeController(ILogger<RecebeController> logger, IIntegraService service, IOptions<AppSettings> options)
     {
@@ -20,6 +21,12 @@ public class RecebeController : ControllerBase
         _service = service;
         _recebeApiKey = options.Value.RecebeApiKey ??
                         throw new ArgumentNullException(nameof(options.Value.RecebeApiKey));
+    }
+    
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok(CODIGO_SUCESSO);
     }
 
     [HttpPost]
@@ -46,6 +53,6 @@ public class RecebeController : ControllerBase
 
         if (!result.Success) return BadRequest("Erro ao realizar a integração.");
 
-        return Ok(new { Protocolo = result.Data });
+        return Ok(CODIGO_SUCESSO);
     }
 }
